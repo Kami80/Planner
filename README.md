@@ -2,6 +2,8 @@
 
 This project is a web-based task planner built using Django (Python) and JavaScript, designed to help users manage weekly tasks effectively. The app enables users to create, update, and track tasks based on days of the week, providing a clear overview of their schedule.
 
+![planner](https://github.com/Kami80/Planner/blob/main/static/planner.png)
+
 ## Key Features:
 - **Task Management:** Add, edit, and delete tasks for specific days.
 - **Dynamic Interface:** Uses JavaScript for responsive, real-time updates.
