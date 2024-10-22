@@ -1,0 +1,97 @@
+
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Weekly Planner</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link "  href="{% url 'plan' %}">Planner</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Edit</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+<div class="container">
+    <div class="timetable-img text-center">
+        <img src="img/content/timetable.png" alt="">
+    </div>
+    <div class="table-responsive">
+        <p><br></p><p><br></p>
+        {% if obj%}
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr class="bg-light-gray">
+                    <th class="text-uppercase">Time
+                    </th>
+                    <th class="text-uppercase">Saturday</th>
+                    <th class="text-uppercase">Sunday</th>
+                    <th class="text-uppercase">Monday</th>
+                    <th class="text-uppercase">Tuesday</th>
+                    <th class="text-uppercase">Wednesday</th>
+                    <th class="text-uppercase">Thursday</th>
+                    <th class="text-uppercase">Friday</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for ls in lst %}
+                <tr>
+                    
+                    {% for l in ls %}
+
+
+                    {% if l in Time %}
+                    <td class="align-middle">{{l}}</td>
+                    
+                    
+                    
+                    
+                    {% elif l %}
+                    <td>
+                        <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" style="background-color: {{l.color}};">{{l.title}}</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"><a href="{% url 'admin:weekly_object_change' l.id %}">Edit</a></div>
+                    </td>
+                    {%else%}
+                    <td><div class="font-size13 text-light-gray"><a href="{% url 'admin:weekly_object_add' %}" role="button"><button type="button" class="btn btn-light">Add</button></a></div></td>
+                    {% endif %}
+
+                    
+
+                    
+                    
+                    {%endfor%}
+                    
+                </tr>
+                {%endfor%}
+
+                
+                
+            </tbody>
+        </table>
+        {%else%}
+
+       <a href="{% url 'admin:weekly_object_add' %}" role="button"> <button type="button" class="btn btn-light">Add your first schedule</button></a>
+
+        {%endif%}
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
