@@ -14,7 +14,7 @@ This project is a web-based task planner built using Django (Python) and JavaScr
 
 ## Setup Instructions:
 1. Clone the repository.
-2. Install required dependencies via `pip install -r requirements.txt`.
+2. Install required dependencies via `pip install django-colorfield`.
 3. Run migrations with `python manage.py migrate`.
 4. Start the server using `python manage.py runserver`.
 5. Access the planner through `localhost:8000`.
